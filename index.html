@@ -1,173 +1,183 @@
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Parent Educational Feedback Survey</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
     <style>
-        :root {
-            --primary-gradient: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-            --secondary-gradient: linear-gradient(135deg, #ff6a88 0%, #ff8e53 100%);
-            --background-color: #f0f4f8;
-            --card-background: white;
-            --text-primary: #2c3e50;
-            --text-secondary: #6c757d;
-        }
+      :root {
+        --primary-gradient: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+        --secondary-gradient: linear-gradient(135deg, #ff6a88 0%, #ff8e53 100%);
+        --background-color: #f0f4f8;
+        --card-background: white;
+        --text-primary: #2c3e50;
+        --text-secondary: #6c757d;
+      }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
 
-        body {
-            background-color: var(--background-color);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
-            background-image: 
-                radial-gradient(circle at top left, rgba(255,138,101,0.2) 0%, transparent 50%),
-                radial-gradient(circle at bottom right, rgba(102,126,234,0.2) 0%, transparent 50%);
-        }
+      body {
+        background-color: var(--background-color);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 20px;
+        background-image: radial-gradient(
+            circle at top left,
+            rgba(255, 138, 101, 0.2) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at bottom right,
+            rgba(102, 126, 234, 0.2) 0%,
+            transparent 50%
+          );
+      }
 
-        .container {
-            background: var(--card-background);
-            border-radius: 10px;
-            width: 90%;
-            max-width: 800px;
-            padding: 40px;
-            position: relative;
-            overflow: hidden;
-            margin: auto;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-        }
+      .container {
+        background: var(--card-background);
+        border-radius: 20px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1),
+          0 5px 15px rgba(0, 0, 0, 0.05);
+        width: 100%;
+        max-width: 800px;
+        padding: 40px;
+        position: relative;
+        overflow: hidden;
+      }
 
-        .container::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: 
-                linear-gradient(45deg, transparent, rgba(255,138,101,0.1)),
-                linear-gradient(135deg, transparent, rgba(102,126,234,0.1));
-            z-index: 1;
-            pointer-events: none;
-        }
+      .container::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(
+            45deg,
+            transparent,
+            rgba(255, 138, 101, 0.1)
+          ),
+          linear-gradient(135deg, transparent, rgba(102, 126, 234, 0.1));
+        z-index: 1;
+        pointer-events: none;
+      }
 
-        .language-selector {
-            display: flex;
-            justify-content: flex-end;
-            margin-bottom: 30px;
-        }
+      .language-selector {
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 30px;
+      }
 
-        .language-selector select {
-            background: var(--primary-gradient);
-            color: rgb(0, 0, 0);
-            padding: 10px 20px;
-            border: none;
-            border-radius: 50px;
-            font-weight: 600;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
+      .language-selector select {
+        background: var(--primary-gradient);
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 50px;
+        font-weight: 600;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+      }
 
-        .language-selector select:hover {
-            transform: scale(1.05);
-        }
+      .language-selector select:hover {
+        transform: scale(1.05);
+      }
 
-        .form-section h2 {
-            background: var(--primary-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 30px;
-            font-size: 1.8rem;
-            text-align: center;
-        }
+      .form-section h2 {
+        background: var(--primary-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 30px;
+        font-size: 1.8rem;
+        text-align: center;
+      }
 
-        .question {
-            background: linear-gradient(to right, #f6f8f9 0%, #e5ebee 100%);
-            border-left: 6px solid transparent;
-            border-image: var(--primary-gradient);
-            border-image-slice: 1;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 10px;
-            transition: all 0.3s ease;
-        }
+      .question {
+        background: linear-gradient(to right, #f6f8f9 0%, #e5ebee 100%);
+        border-left: 6px solid transparent;
+        border-image: var(--primary-gradient);
+        border-image-slice: 1;
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 10px;
+        transition: all 0.3s ease;
+      }
 
-        .question:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-        }
+      .question:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+      }
 
-        .question label {
-            display: block;
-            margin-bottom: 15px;
-            color: var(--text-primary);
-            font-weight: 600;
-        }
+      .question label {
+        display: block;
+        margin-bottom: 15px;
+        color: var(--text-primary);
+        font-weight: 600;
+      }
 
-        .options {
-            display: flex;
-            flex-direction: column;
-        }
+      .options {
+        display: flex;
+        flex-direction: column;
+      }
 
-        .options label {
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
+      .options label {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
 
-        .options label:hover {
-            color: #2575fc;
-        }
+      .options label:hover {
+        color: #2575fc;
+      }
 
-        .options input[type="radio"],
-        .options input[type="checkbox"] {
-            margin-right: 15px;
-            appearance: none;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            border: 2px solid #a0a0a0;
-            outline: none;
-            transition: all 0.3s ease;
-        }
+      .options input[type="radio"],
+      .options input[type="checkbox"] {
+        margin-right: 15px;
+        appearance: none;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        border: 2px solid #a0a0a0;
+        outline: none;
+        transition: all 0.3s ease;
+      }
 
-        .options input[type="radio"]:checked,
-        .options input[type="checkbox"]:checked {
-            background: var(--primary-gradient);
-            border-color: transparent;
-            box-shadow: 0 0 0 3px white, 0 0 0 5px #2575fc;
-        }
-        
+      .options input[type="radio"]:checked,
+      .options input[type="checkbox"]:checked {
+        background: var(--primary-gradient);
+        border-color: transparent;
+        box-shadow: 0 0 0 3px white, 0 0 0 5px #2575fc;
+      }
 
-        .text-input {
-            width: 100%;
-            padding: 15px;
-            border: 2px solid #e0e0e0;
-            border-radius: 10px;
-            margin-top: 15px;
-            resize: vertical;
-            transition: all 0.3s ease;
-        }
+      .text-input {
+        width: 100%;
+        padding: 15px;
+        border: 2px solid #e0e0e0;
+        border-radius: 10px;
+        margin-top: 15px;
+        resize: vertical;
+        transition: all 0.3s ease;
+      }
 
-        .text-input:focus {
-            border-color: #2575fc;
-            box-shadow: 0 0 0 3px rgba(37, 117, 252, 0.1);
-        }
+      .text-input:focus {
+        border-color: #2575fc;
+        box-shadow: 0 0 0 3px rgba(37, 117, 252, 0.1);
+      }
 
-        textarea {
+      textarea {
             width: 100%;
             height: 150px;
             padding: 10px;
@@ -177,264 +187,580 @@
             resize: vertical;
             background: #fff;
             box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
-        }
+      }
+      
 
-        
+      .submit-btn {
+        background: var(--secondary-gradient);
+        color: white;
+        border: none;
+        padding: 15px 30px;
+        border-radius: 50px;
+        font-weight: 600;
+        width: 100%;
+        margin-top: 20px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 10px 20px rgba(255, 106, 136, 0.3);
+      }
 
-        .submit-btn {
-            background: var(--secondary-gradient);
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            border-radius: 50px;
-            font-weight: 600;
-            width: 100%;
-            margin-top: 20px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 20px rgba(255,106,136,0.3);
-        }
+      .submit-btn:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 25px rgba(255, 106, 136, 0.4);
+      }
 
-        .submit-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 25px rgba(255,106,136,0.4);
+      @media (max-width: 600px) {
+        .container {
+          padding: 20px;
         }
-
-        @media (max-width: 600px) {
-            .container {
-                padding: 20px;
-            }
-        }
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="container">
-        <div class="language-selector">
-            <select id="language-select">
-                <option value="english">English</option>
-                <option value="hindi">हिन्दी</option>
+      <div class="language-selector">
+        <select id="language-select">
+          <option value="english">English</option>
+          <option value="hindi">हिन्दी</option>
+        </select>
+      </div>
 
-            </select>
-        </div>
+      <form id="parent-feedback-form">
+        <div class="form-section">
+          <h2 id="form-title">Parent Educational Feedback Survey</h2>
 
-        <form id="parent-feedback-form">
-            <div class="form-section">
-                <h2 id="form-title">Parent Educational Feedback Survey</h2>
-                
-                <!-- Questions with IDs for translation -->
-                <div class="question" id="grade-level-question">
-                    <label id="grade-level-label">What is your child's current grade level?</label>
-                    <div class="options">
-                        <label><input type="radio" name="gradeLevel" value="nursery-kg"> Nursery–KG</label>
-                        <label><input type="radio" name="gradeLevel" value="1st-5th"> 1st–5th Grade</label>
-                        <label><input type="radio" name="gradeLevel" value="6th-8th"> 6th–8th Grade</label>
-                        <label><input type="radio" name="gradeLevel" value="9th-12th"> 9th–12th Grade</label>
-                    </div>
-                </div>
-
-                <div class="question" id="parent-involvement-question">
-                    <label id="parent-involvement-label">How involved are you in your child’s education?</label>
-                    <div class="options">
-                        <label><input type="radio" name="parentInvolvement" value="very-involved"> Very involved (daily discussions, help with homework)</label>
-                        <label><input type="radio" name="parentInvolvement" value="somewhat-involved"> Somewhat involved (occasional discussions, monitor grades)</label>
-                        <label><input type="radio" name="parentInvolvement" value="rarely-involved"> Rarely involved (only during school meetings)</label>
-                        <label><input type="radio" name="parentInvolvement" value="not-involved"> Not involved at all</label>
-                    </div>
-                </div>
-                
-                <div class="question" id="academic-challenges-question">
-                    <label id="academic-challenges-label">What challenges do you face in keeping track of your child’s academic progress?</label>
-                    <div class="options">
-                        <label><input type="checkbox" name="academicChallenges" value="lack-updates"> Lack of updates from school/teachers</label>
-                        <label><input type="checkbox" name="academicChallenges" value="no-tracking"> No proper tracking system for assignments and grades</label>
-                        <label><input type="checkbox" name="academicChallenges" value="child-not-sharing"> My child doesn’t share school details with me</label>
-                        <label><input type="checkbox" name="academicChallenges" value="rely-report-cards"> I rely only on report cards and parent-teacher meetings</label>
-                        <label><input type="checkbox" name="academicChallenges" value="other"> Other (please specify)</label>
-                    </div>
-                </div>
-                
-                <div class="question" id="tuition-question">
-                    <label id="tuition-label">Does your child require extra tuition or coaching?</label>
-                    <div class="options">
-                        <label><input type="radio" name="tuition" value="multiple-subjects"> Yes, for multiple subjects</label>
-                        <label><input type="radio" name="tuition" value="one-two-subjects"> Yes, but only for one or two subjects</label>
-                        <label><input type="radio" name="tuition" value="no-tuition"> No, they manage well without tuition</label>
-                        <label><input type="radio" name="tuition" value="not-sure"> Not sure</label>
-                    </div>
-                </div>
-                
-                <div class="question" id="homework-question">
-                    <label id="homework-label">How does your child usually complete their homework?</label>
-                    <div class="options">
-                        <label><input type="radio" name="homework" value="independent"> Independently</label>
-                        <label><input type="radio" name="homework" value="parent-help"> With help from parents/siblings</label>
-                        <label><input type="radio" name="homework" value="tuition-help"> Through tuition or external help</label>
-                        <label><input type="radio" name="homework" value="incomplete"> Often incomplete or missed</label>
-                    </div>
-                </div>
-                
-                <div class="question" id="digital-tools-question">
-                    <label id="digital-tools-label">Does your child have access to digital learning tools or online resources provided by the school?</label>
-                    <div class="options">
-                        <label><input type="radio" name="digitalTools" value="regular-use"> Yes, and we use them regularly</label>
-                        <label><input type="radio" name="digitalTools" value="not-effective"> Yes, but they are not effective</label>
-                        <label><input type="radio" name="digitalTools" value="no-tools"> No, the school doesn’t provide digital tools</label>
-                        <label><input type="radio" name="digitalTools" value="not-aware"> I’m not aware</label>
-                    </div>
-                </div>
-                
-                <div class="question" id="school-communication-question">
-                    <label id="school-communication-label">How often does the school communicate with you about your child’s performance?</label>
-                    <div class="options">
-                        <label><input type="radio" name="schoolCommunication" value="frequent"> Frequently (weekly updates, messages, meetings)</label>
-                        <label><input type="radio" name="schoolCommunication" value="occasional"> Occasionally (once a month or term)</label>
-                        <label><input type="radio" name="schoolCommunication" value="rarely"> Rarely (only during report card distribution)</label>
-                        <label><input type="radio" name="schoolCommunication" value="never"> Never</label>
-                    </div>
-                </div>
-
-                <div class="question" id="school-communication-mode-question">
-                    <label id="school-communication-mode-label">What mode of communication does your child’s school use most frequently?</label>
-                    <div class="options">
-                        <label><input type="checkbox" name="schoolCommunicationMode" value="whatsapp-sms"> WhatsApp/SMS</label>
-                        <label><input type="checkbox" name="schoolCommunicationMode" value="school-app"> School App/Portal</label>
-                        <label><input type="checkbox" name="schoolCommunicationMode" value="phone-calls"> Phone Calls</label>
-                        <label><input type="checkbox" name="schoolCommunicationMode" value="emails"> Emails</label>
-                        <label><input type="checkbox" name="schoolCommunicationMode" value="physical-notices"> Physical Notices/Circulars</label>
-                        <label><input type="checkbox" name="schoolCommunicationMode" value="no-communication"> No communication</label>
-                    </div>
-                </div>
-                
-                <div class="question" id="communication-sufficiency-question">
-                    <label id="communication-sufficiency-label">Do you feel the current communication from the school is sufficient?</label>
-                    <div class="options">
-                        <label><input type="radio" name="communicationSufficiency" value="sufficient"> Yes, I get all the information I need</label>
-                        <label><input type="radio" name="communicationSufficiency" value="more-updates"> No, I would like more updates</label>
-                        <label><input type="radio" name="communicationSufficiency" value="miss-updates"> No, I often miss important updates</label>
-                        <label><input type="radio" name="communicationSufficiency" value="not-sure"> Not sure</label>
-                    </div>
-                </div>
-                
-                <div class="question" id="education-concerns-question">
-                    <label id="education-concerns-label">What concerns do you have about your child’s education?</label>
-                    <div class="options">
-                        <label><input type="checkbox" name="educationConcerns" value="quality-education"> Quality of education in the school</label>
-                        <label><input type="checkbox" name="educationConcerns" value="lack-updates"> Lack of regular updates on my child’s progress</label>
-                        <label><input type="checkbox" name="educationConcerns" value="tracking-homework"> Difficulty in tracking homework and assignments</label>
-                        <label><input type="checkbox" name="educationConcerns" value="over-reliance-tuition"> Over-reliance on tuition instead of school teaching</label>
-                        <label><input type="checkbox" name="educationConcerns" value="screen-time"> Screen time & distractions due to digital learning</label>
-                        <label><input type="checkbox" name="educationConcerns" value="other"> Other (please specify)</label>
-                    </div>
-                </div>
-
-                <div class="question" id="school-improvement-question">
-                    <label id="school-improvement-label">If you could improve one thing about your child’s school experience, what would it be?</label>
-                    <textarea name="schoolImprovement" placeholder="Write your answer here..."></textarea>
-                </div>
-                
-                <div class="question" id="platform-interest-question">
-                    <label id="platform-interest-label">Would you be open to using a platform that helps track your child’s academic progress, feedback, and updates in one place?</label>
-                    <div class="options">
-                        <label><input type="radio" name="platformInterest" value="yes"> Yes, it would be helpful</label>
-                        <label><input type="radio" name="platformInterest" value="maybe"> Maybe, I’d need to know more</label>
-                        <label><input type="radio" name="platformInterest" value="no"> No, I’m satisfied with the current system</label>
-                    </div>
-                </div>
-                
-                
-                
-                <!-- Submit Button -->
-                <button type="submit" class="submit-btn">Submit Feedback</button>
+          <!-- Questions with IDs for translation -->
+          <div class="question" id="grade-level-question">
+            <label id="grade-level-label"
+              >What is your child's current grade level?</label
+            >
+            <div class="options">
+              <label
+                ><input type="radio" name="gradeLevel" value="nursery-kg" />
+                Nursery–KG</label
+              >
+              <label
+                ><input type="radio" name="gradeLevel" value="1st-5th" />
+                1st–5th Grade</label
+              >
+              <label
+                ><input type="radio" name="gradeLevel" value="6th-8th" />
+                6th–8th Grade</label
+              >
+              <label
+                ><input type="radio" name="gradeLevel" value="9th-12th" />
+                9th–12th Grade</label
+              >
             </div>
-        </form>
+          </div>
+
+          <div class="question" id="parent-involvement-question">
+            <label id="parent-involvement-label"
+              >How involved are you in your child’s education?</label
+            >
+            <div class="options">
+              <label
+                ><input
+                  type="radio"
+                  name="parentInvolvement"
+                  value="very-involved"
+                />
+                Very involved (daily discussions, help with homework)</label
+              >
+              <label
+                ><input
+                  type="radio"
+                  name="parentInvolvement"
+                  value="somewhat-involved"
+                />
+                Somewhat involved (occasional discussions, monitor
+                grades)</label
+              >
+              <label
+                ><input
+                  type="radio"
+                  name="parentInvolvement"
+                  value="rarely-involved"
+                />
+                Rarely involved (only during school meetings)</label
+              >
+              <label
+                ><input
+                  type="radio"
+                  name="parentInvolvement"
+                  value="not-involved"
+                />
+                Not involved at all</label
+              >
+            </div>
+          </div>
+
+          <div class="question" id="academic-challenges-question">
+            <label id="academic-challenges-label"
+              >What challenges do you face in keeping track of your child’s
+              academic progress?</label
+            >
+            <div class="options">
+              <label
+                ><input
+                  type="checkbox"
+                  name="academicChallenges"
+                  value="lack-updates"
+                />
+                Lack of updates from school/teachers</label
+              >
+              <label
+                ><input
+                  type="checkbox"
+                  name="academicChallenges"
+                  value="no-tracking"
+                />
+                No proper tracking system for assignments and grades</label
+              >
+              <label
+                ><input
+                  type="checkbox"
+                  name="academicChallenges"
+                  value="child-not-sharing"
+                />
+                My child doesn’t share school details with me</label
+              >
+              <label
+                ><input
+                  type="checkbox"
+                  name="academicChallenges"
+                  value="rely-report-cards"
+                />
+                I rely only on report cards and parent-teacher meetings</label
+              >
+              <label
+                ><input
+                  type="checkbox"
+                  name="academicChallenges"
+                  value="other"
+                />
+                Other (please specify)</label
+              >
+            </div>
+          </div>
+
+          <div class="question" id="tuition-question">
+            <label id="tuition-label"
+              >Does your child require extra tuition or coaching?</label
+            >
+            <div class="options">
+              <label
+                ><input type="radio" name="tuition" value="multiple-subjects" />
+                Yes, for multiple subjects</label
+              >
+              <label
+                ><input type="radio" name="tuition" value="one-two-subjects" />
+                Yes, but only for one or two subjects</label
+              >
+              <label
+                ><input type="radio" name="tuition" value="no-tuition" /> No,
+                they manage well without tuition</label
+              >
+              <label
+                ><input type="radio" name="tuition" value="not-sure" /> Not
+                sure</label
+              >
+            </div>
+          </div>
+
+          <div class="question" id="homework-question">
+            <label id="homework-label"
+              >How does your child usually complete their homework?</label
+            >
+            <div class="options">
+              <label
+                ><input type="radio" name="homework" value="independent" />
+                Independently</label
+              >
+              <label
+                ><input type="radio" name="homework" value="parent-help" /> With
+                help from parents/siblings</label
+              >
+              <label
+                ><input type="radio" name="homework" value="tuition-help" />
+                Through tuition or external help</label
+              >
+              <label
+                ><input type="radio" name="homework" value="incomplete" /> Often
+                incomplete or missed</label
+              >
+            </div>
+          </div>
+
+          <div class="question" id="digital-tools-question">
+            <label id="digital-tools-label"
+              >Does your child have access to digital learning tools or online
+              resources provided by the school?</label
+            >
+            <div class="options">
+              <label
+                ><input type="radio" name="digitalTools" value="regular-use" />
+                Yes, and we use them regularly</label
+              >
+              <label
+                ><input
+                  type="radio"
+                  name="digitalTools"
+                  value="not-effective"
+                />
+                Yes, but they are not effective</label
+              >
+              <label
+                ><input type="radio" name="digitalTools" value="no-tools" /> No,
+                the school doesn’t provide digital tools</label
+              >
+              <label
+                ><input type="radio" name="digitalTools" value="not-aware" />
+                I’m not aware</label
+              >
+            </div>
+          </div>
+
+          <div class="question" id="school-communication-question">
+            <label id="school-communication-label"
+              >How often does the school communicate with you about your child’s
+              performance?</label
+            >
+            <div class="options">
+              <label
+                ><input
+                  type="radio"
+                  name="schoolCommunication"
+                  value="frequent"
+                />
+                Frequently (weekly updates, messages, meetings)</label
+              >
+              <label
+                ><input
+                  type="radio"
+                  name="schoolCommunication"
+                  value="occasional"
+                />
+                Occasionally (once a month or term)</label
+              >
+              <label
+                ><input
+                  type="radio"
+                  name="schoolCommunication"
+                  value="rarely"
+                />
+                Rarely (only during report card distribution)</label
+              >
+              <label
+                ><input type="radio" name="schoolCommunication" value="never" />
+                Never</label
+              >
+            </div>
+          </div>
+
+          <div class="question" id="school-communication-mode-question">
+            <label id="school-communication-mode-label"
+              >What mode of communication does your child’s school use most
+              frequently?</label
+            >
+            <div class="options">
+              <label
+                ><input
+                  type="checkbox"
+                  name="schoolCommunicationMode"
+                  value="whatsapp-sms"
+                />
+                WhatsApp/SMS</label
+              >
+              <label
+                ><input
+                  type="checkbox"
+                  name="schoolCommunicationMode"
+                  value="school-app"
+                />
+                School App/Portal</label
+              >
+              <label
+                ><input
+                  type="checkbox"
+                  name="schoolCommunicationMode"
+                  value="phone-calls"
+                />
+                Phone Calls</label
+              >
+              <label
+                ><input
+                  type="checkbox"
+                  name="schoolCommunicationMode"
+                  value="emails"
+                />
+                Emails</label
+              >
+              <label
+                ><input
+                  type="checkbox"
+                  name="schoolCommunicationMode"
+                  value="physical-notices"
+                />
+                Physical Notices/Circulars</label
+              >
+              <label
+                ><input
+                  type="checkbox"
+                  name="schoolCommunicationMode"
+                  value="no-communication"
+                />
+                No communication</label
+              >
+            </div>
+          </div>
+
+          <div class="question" id="communication-sufficiency-question">
+            <label id="communication-sufficiency-label"
+              >Do you feel the current communication from the school is
+              sufficient?</label
+            >
+            <div class="options">
+              <label
+                ><input
+                  type="radio"
+                  name="communicationSufficiency"
+                  value="sufficient"
+                />
+                Yes, I get all the information I need</label
+              >
+              <label
+                ><input
+                  type="radio"
+                  name="communicationSufficiency"
+                  value="more-updates"
+                />
+                No, I would like more updates</label
+              >
+              <label
+                ><input
+                  type="radio"
+                  name="communicationSufficiency"
+                  value="miss-updates"
+                />
+                No, I often miss important updates</label
+              >
+              <label
+                ><input
+                  type="radio"
+                  name="communicationSufficiency"
+                  value="not-sure"
+                />
+                Not sure</label
+              >
+            </div>
+          </div>
+
+          <div class="question" id="education-concerns-question">
+            <label id="education-concerns-label"
+              >What concerns do you have about your child’s education?</label
+            >
+            <div class="options">
+              <label
+                ><input
+                  type="checkbox"
+                  name="educationConcerns"
+                  value="quality-education"
+                />
+                Quality of education in the school</label
+              >
+              <label
+                ><input
+                  type="checkbox"
+                  name="educationConcerns"
+                  value="lack-updates"
+                />
+                Lack of regular updates on my child’s progress</label
+              >
+              <label
+                ><input
+                  type="checkbox"
+                  name="educationConcerns"
+                  value="tracking-homework"
+                />
+                Difficulty in tracking homework and assignments</label
+              >
+              <label
+                ><input
+                  type="checkbox"
+                  name="educationConcerns"
+                  value="over-reliance-tuition"
+                />
+                Over-reliance on tuition instead of school teaching</label
+              >
+              <label
+                ><input
+                  type="checkbox"
+                  name="educationConcerns"
+                  value="screen-time"
+                />
+                Screen time & distractions due to digital learning</label
+              >
+              <label
+                ><input
+                  type="checkbox"
+                  name="educationConcerns"
+                  value="other"
+                />
+                Other (please specify)</label
+              >
+            </div>
+          </div>
+
+          <div class="question" id="school-improvement-question">
+            <label id="school-improvement-label"
+              >If you could improve one thing about your child’s school
+              experience, what would it be?</label
+            >
+            <textarea
+              name="schoolImprovement"
+              placeholder="Write your answer here..."
+            ></textarea>
+          </div>
+
+          <div class="question" id="platform-interest-question">
+            <label id="platform-interest-label"
+              >Would you be open to using a platform that helps track your
+              child’s academic progress, feedback, and updates in one
+              place?</label
+            >
+            <div class="options">
+              <label
+                ><input type="radio" name="platformInterest" value="yes" /> Yes,
+                it would be helpful</label
+              >
+              <label
+                ><input type="radio" name="platformInterest" value="maybe" />
+                Maybe, I’d need to know more</label
+              >
+              <label
+                ><input type="radio" name="platformInterest" value="no" /> No,
+                I’m satisfied with the current system</label
+              >
+            </div>
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" class="submit-btn" id="submit">
+            Submit Feedback
+          </button>
+        </div>
+      </form>
     </div>
 
     <script>
-
-    const original = {
+      const original = {
         "form-title": "Parent Educational Feedback Survey",
         "grade-level-label": "What is your child's current grade level?",
-        "parent-involvement-label": "How involved are you in your child’s education?",
-        "academic-challenges-label": "What challenges do you face in keeping track of your child’s academic progress?",
+        "parent-involvement-label":
+          "How involved are you in your child’s education?",
+        "academic-challenges-label":
+          "What challenges do you face in keeping track of your child’s academic progress?",
         "tuition-label": "Does your child require extra tuition or coaching?",
-        "homework-label": "How does your child usually complete their homework?",
-        "digital-tools-label": "Does your child have access to digital learning tools or online resources provided by the school?",
-        "school-communication-label": "How often does the school communicate with you about your child’s performance?",
-        "school-communication-mode-label": "What mode of communication does your child’s school use most frequently?",
-        "communication-sufficiency-label": "Do you feel the current communication from the school is sufficient?",
-        "education-concerns-label": "What concerns do you have about your child’s education?",
-        "school-improvement-label": "If you could improve one thing about your child’s school experience, what would it be?",
-        "platform-interest-label": "Would you be open to using a platform that helps track your child’s academic progress, feedback, and updates in one place?"
-    } 
-    
-    
-    const originalOptions = {
+        "homework-label":
+          "How does your child usually complete their homework?",
+        "digital-tools-label":
+          "Does your child have access to digital learning tools or online resources provided by the school?",
+        "school-communication-label":
+          "How often does the school communicate with you about your child’s performance?",
+        "school-communication-mode-label":
+          "What mode of communication does your child’s school use most frequently?",
+        "communication-sufficiency-label":
+          "Do you feel the current communication from the school is sufficient?",
+        "education-concerns-label":
+          "What concerns do you have about your child’s education?",
+        "school-improvement-label":
+          "If you could improve one thing about your child’s school experience, what would it be?",
+        "platform-interest-label":
+          "Would you be open to using a platform that helps track your child’s academic progress, feedback, and updates in one place?",
+      };
+
+      const originalOptions = {
         "nursery-kg": "Nursery–KG",
         "1st-5th": "1st–5th Grade",
         "6th-8th": "6th–8th Grade",
         "9th-12th": "9th–12th Grade",
-        "very-involved": "Very involved (daily discussions, help with homework)",
-        "somewhat-involved": "Somewhat involved (occasional discussions, monitor grades)",
+        "very-involved":
+          "Very involved (daily discussions, help with homework)",
+        "somewhat-involved":
+          "Somewhat involved (occasional discussions, monitor grades)",
         "rarely-involved": "Rarely involved (only during school meetings)",
         "not-involved": "Not involved at all",
         "lack-updates": "Lack of updates from school/teachers",
         "no-tracking": "No proper tracking system for assignments and grades",
         "child-not-sharing": "My child doesn’t share school details with me",
-        "rely-report-cards": "I rely only on report cards and parent-teacher meetings",
+        "rely-report-cards":
+          "I rely only on report cards and parent-teacher meetings",
         "multiple-subjects": "Yes, for multiple subjects",
         "one-two-subjects": "Yes, but only for one or two subjects",
         "no-tuition": "No, they manage well without tuition",
         "not-sure": "Not sure",
-        "independent": "Independently",
+        independent: "Independently",
         "parent-help": "With help from parents/siblings",
         "tuition-help": "Through tuition or external help",
-        "incomplete": "Often incomplete or missed",
+        incomplete: "Often incomplete or missed",
         "regular-use": "Yes, and we use them regularly",
         "not-effective": "Yes, but they are not effective",
         "no-tools": "No, the school doesn’t provide digital tools",
         "not-aware": "I’m not aware",
-        "frequent": "Frequently (weekly updates, messages, meetings)",
-        "occasional": "Occasionally (once a month or term)",
-        "rarely": "Rarely (only during report card distribution)",
-        "never": "Never",
+        frequent: "Frequently (weekly updates, messages, meetings)",
+        occasional: "Occasionally (once a month or term)",
+        rarely: "Rarely (only during report card distribution)",
+        never: "Never",
         "whatsapp-sms": "WhatsApp/SMS",
         "school-app": "School App/Portal",
         "phone-calls": "Phone Calls",
-        "emails": "Emails",
+        emails: "Emails",
         "physical-notices": "Physical Notices/Circulars",
         "no-communication": "No communication",
-        "sufficient": "Yes, I get all the information I need",
+        sufficient: "Yes, I get all the information I need",
         "more-updates": " No, I would like more updates",
         "miss-updates": "No, I often miss important updates",
         "not-sure": "Not sure",
         "quality-education": "Quality of education in the school",
         "tracking-homework": "Difficulty in tracking homework and assignments",
-        "over-reliance-tuition": " Over-reliance on tuition instead of school teaching",
+        "over-reliance-tuition":
+          " Over-reliance on tuition instead of school teaching",
         "screen-time": "Screen time & distractions due to digital learning",
-        "other": "Other (please specify)",
-        "yes": "Yes, it would be helpful",
-        "maybe": "Maybe, I’d need to know more",
-        "no": "No, I’m satisfied with the current system"
-    }
+        other: "Other (please specify)",
+        yes: "Yes, it would be helpful",
+        maybe: "Maybe, I’d need to know more",
+        no: "No, I’m satisfied with the current system",
+      };
 
-    const translations = {
+      const translations = {
         "form-title": "माता-पिता की शैक्षिक प्रतिक्रिया सर्वेक्षण",
         "grade-level-label": "आपके बच्चे की वर्तमान कक्षा क्या है?",
-        "parent-involvement-label": "आप अपने बच्चे की शिक्षा में कितने शामिल हैं?",
-        "academic-challenges-label": "आपको अपने बच्चे की शैक्षिक प्रगति को ट्रैक करने में कौन सी चुनौतियों का सामना करना पड़ता है?",
-        "tuition-label": "क्या आपके बच्चे को अतिरिक्त ट्यूशन या कोचिंग की आवश्यकता है?",
+        "parent-involvement-label":
+          "आप अपने बच्चे की शिक्षा में कितने शामिल हैं?",
+        "academic-challenges-label":
+          "आपको अपने बच्चे की शैक्षिक प्रगति को ट्रैक करने में कौन सी चुनौतियों का सामना करना पड़ता है?",
+        "tuition-label":
+          "क्या आपके बच्चे को अतिरिक्त ट्यूशन या कोचिंग की आवश्यकता है?",
         "homework-label": "आपका बच्चा आमतौर पर अपना होमवर्क कैसे पूरा करता है?",
-        "digital-tools-label": "क्या आपके बच्चे के पास स्कूल द्वारा प्रदान किए गए डिजिटल शिक्षण उपकरणों या ऑनलाइन संसाधनों तक पहुंच है?",
-        "school-communication-label": "स्कूल आपको आपके बच्चे के प्रदर्शन के बारे में कितनी बार सूचित करता है?",
-        "school-communication-mode-label": "आपके बच्चे के स्कूल द्वारा सबसे अधिक उपयोग किया जाने वाला संचार माध्यम कौन सा है?",
-        "communication-sufficiency-label": "क्या आपको लगता है कि वर्तमान स्कूल संचार पर्याप्त है?",
-        "education-concerns-label": "आपको अपने बच्चे की शिक्षा के बारे में कौन-कौन से चिंताएँ हैं?",
-        "school-improvement-label": "यदि आप अपने बच्चे के स्कूल अनुभव में एक चीज़ सुधार सकते हैं, तो वह क्या होगी?",
-        "platform-interest-label": "क्या आप एक ऐसे प्लेटफ़ॉर्म का उपयोग करने के लिए तैयार होंगे जो आपके बच्चे की शैक्षिक प्रगति, प्रतिक्रिया और अपडेट को एक ही स्थान पर ट्रैक करने में मदद करे?"
-    };
+        "digital-tools-label":
+          "क्या आपके बच्चे के पास स्कूल द्वारा प्रदान किए गए डिजिटल शिक्षण उपकरणों या ऑनलाइन संसाधनों तक पहुंच है?",
+        "school-communication-label":
+          "स्कूल आपको आपके बच्चे के प्रदर्शन के बारे में कितनी बार सूचित करता है?",
+        "school-communication-mode-label":
+          "आपके बच्चे के स्कूल द्वारा सबसे अधिक उपयोग किया जाने वाला संचार माध्यम कौन सा है?",
+        "communication-sufficiency-label":
+          "क्या आपको लगता है कि वर्तमान स्कूल संचार पर्याप्त है?",
+        "education-concerns-label":
+          "आपको अपने बच्चे की शिक्षा के बारे में कौन-कौन से चिंताएँ हैं?",
+        "school-improvement-label":
+          "यदि आप अपने बच्चे के स्कूल अनुभव में एक चीज़ सुधार सकते हैं, तो वह क्या होगी?",
+        "platform-interest-label":
+          "क्या आप एक ऐसे प्लेटफ़ॉर्म का उपयोग करने के लिए तैयार होंगे जो आपके बच्चे की शैक्षिक प्रगति, प्रतिक्रिया और अपडेट को एक ही स्थान पर ट्रैक करने में मदद करे?",
+      };
 
-    const optionsTranslations = {
+      const optionsTranslations = {
         "nursery-kg": "नर्सरी–केजी",
         "1st-5th": "1ली–5वीं कक्षा",
         "6th-8th": "6ठी–8वीं कक्षा",
@@ -446,77 +772,153 @@
         "lack-updates": "स्कूल/शिक्षकों से अपडेट की कमी",
         "no-tracking": "असाइनमेंट और ग्रेड के लिए उचित ट्रैकिंग सिस्टम नहीं",
         "child-not-sharing": "मेरा बच्चा स्कूल विवरण साझा नहीं करता",
-        "rely-report-cards": "मैं केवल रिपोर्ट कार्ड और माता-पिता-शिक्षक बैठकों पर निर्भर करता हूँ",
+        "rely-report-cards":
+          "मैं केवल रिपोर्ट कार्ड और माता-पिता-शिक्षक बैठकों पर निर्भर करता हूँ",
         "multiple-subjects": "हाँ, कई विषयों के लिए",
         "one-two-subjects": "हाँ, लेकिन केवल एक या दो विषयों के लिए",
         "no-tuition": "नहीं, वे ट्यूशन के बिना प्रबंधन करते हैं",
         "not-sure": "पता नहीं",
-        "independent": "स्वतंत्र रूप से",
+        independent: "स्वतंत्र रूप से",
         "parent-help": "माता-पिता/भाई-बहनों की मदद से",
         "tuition-help": "ट्यूशन या बाहरी सहायता के माध्यम से",
-        "incomplete": "अक्सर अधूरा या छूटा हुआ",
+        incomplete: "अक्सर अधूरा या छूटा हुआ",
         "regular-use": "हाँ, और हम नियमित रूप से उपयोग करते हैं",
         "not-effective": "हाँ, लेकिन वे प्रभावी नहीं हैं",
         "no-tools": "नहीं, स्कूल डिजिटल उपकरण प्रदान नहीं करता",
         "not-aware": "मुझे जानकारी नहीं है",
-        "frequent": "अक्सर (साप्ताहिक अपडेट, संदेश, बैठकें)",
-        "occasional": "कभी-कभी (महीने में एक बार या टर्म में एक बार)",
-        "rarely": "शायद ही कभी (केवल रिपोर्ट कार्ड वितरण के दौरान)",
-        "never": "कभी नहीं",
+        frequent: "अक्सर (साप्ताहिक अपडेट, संदेश, बैठकें)",
+        occasional: "कभी-कभी (महीने में एक बार या टर्म में एक बार)",
+        rarely: "शायद ही कभी (केवल रिपोर्ट कार्ड वितरण के दौरान)",
+        never: "कभी नहीं",
         "whatsapp-sms": "व्हाट्सएप/एसएमएस",
         "school-app": "स्कूल ऐप/पोर्टल",
         "phone-calls": "फोन कॉल",
-        "emails": "ईमेल",
+        emails: "ईमेल",
         "physical-notices": "शारीरिक नोटिस/परिपत्र",
         "no-communication": "कोई संचार नहीं",
-        "sufficient": "हाँ, मुझे सभी आवश्यक जानकारी मिलती है",
+        sufficient: "हाँ, मुझे सभी आवश्यक जानकारी मिलती है",
         "more-updates": "नहीं, मैं और अपडेट चाहूँगा",
         "miss-updates": "नहीं, मैं अक्सर महत्वपूर्ण अपडेट चूक जाता हूँ",
         "not-sure": "पता नहीं",
         "quality-education": "स्कूल में शिक्षा की गुणवत्ता",
         "tracking-homework": "होमवर्क और असाइनमेंट ट्रैक करने में कठिनाई",
-        "over-reliance-tuition": "स्कूल की शिक्षा के बजाय ट्यूशन पर अधिक निर्भरता",
+        "over-reliance-tuition":
+          "स्कूल की शिक्षा के बजाय ट्यूशन पर अधिक निर्भरता",
         "screen-time": "डिजिटल शिक्षा के कारण स्क्रीन समय और ध्यान भटकना",
-        "other": "अन्य (कृपया निर्दिष्ट करें)",
-        "yes": "हाँ, यह सहायक होगा",
-        "maybe": "शायद, मुझे और जानकारी चाहिए",
-        "no": "नहीं, मैं वर्तमान प्रणाली से संतुष्ट हूँ"
-    };
+        other: "अन्य (कृपया निर्दिष्ट करें)",
+        yes: "हाँ, यह सहायक होगा",
+        maybe: "शायद, मुझे और जानकारी चाहिए",
+        no: "नहीं, मैं वर्तमान प्रणाली से संतुष्ट हूँ",
+      };
 
-        const languageSelect = document.getElementById('language-select');
+      const languageSelect = document.getElementById("language-select");
 
-        languageSelect.addEventListener('change', (e) => {
-            const selectedLanguage = e.target.value;
-            updateLanguage(selectedLanguage);
-        });
+      languageSelect.addEventListener("change", (e) => {
+        const selectedLanguage = e.target.value;
+        updateLanguage(selectedLanguage);
+      });
 
-        function updateLanguage(lang) {
+      function updateLanguage(lang) {
+        if (lang === "hindi") {
+          Object.keys(translations).forEach((id) => {
+            document.getElementById(id).innerText = translations[id];
+          });
 
-            if (lang === "hindi") {
-                Object.keys(translations).forEach(id => {
-                document.getElementById(id).innerText = translations[id];
+          document
+            .querySelectorAll("input[type=radio], input[type=checkbox]")
+            .forEach((input) => {
+              if (optionsTranslations[input.value]) {
+                input.nextSibling.nodeValue = optionsTranslations[input.value];
+              }
             });
+        } else {
+          Object.keys(original).forEach((id) => {
+            document.getElementById(id).innerText = original[id];
+          });
 
-            document.querySelectorAll("input[type=radio], input[type=checkbox]").forEach(input => {
-                if (optionsTranslations[input.value]) {
-                    input.nextSibling.nodeValue = optionsTranslations[input.value];
-                }
-            });
-            
-        }else {
-            Object.keys(original).forEach(id => {
-                document.getElementById(id).innerText = original[id];
-            });
-
-            document.querySelectorAll("input[type=radio], input[type=checkbox]").forEach(input => {
-                if (originalOptions[input.value]) {
-                    input.nextSibling.nodeValue = originalOptions[input.value];
-                }
+          document
+            .querySelectorAll("input[type=radio], input[type=checkbox]")
+            .forEach((input) => {
+              if (originalOptions[input.value]) {
+                input.nextSibling.nodeValue = originalOptions[input.value];
+              }
             });
         }
-        }
+      }
 
-         updateLanguage('english');
+      updateLanguage("english");
+
+      const submit = document.getElementById("submit");
+
+      submit.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        const names = [
+          "gradeLevel",
+          "parentInvolvement",
+          "academicChallenges",
+          "tuition",
+          "homework",
+          "digitalTools",
+          "schoolCommunication",
+          "schoolCommunicationMode",
+          "communicationSufficiency",
+          "educationConcerns",
+          "platformInterest",
+        ];
+
+        let responses = [];
+        let allFieldsChecked = true; // Flag to track if all fields are checked.
+
+        for (let index = 0; index < names.length; index++) {
+          const inputfieldvalues = document.getElementsByName(names[index]);
+
+          if (!allFieldsChecked) {
+            break; // Stop processing if any field was already unchecked
+          } else if (index === 10) {
+            const textareavalue = document.querySelector(
+              'textarea[name="schoolImprovement"]'
+            ).value;
+
+            if (textareavalue === "") {
+              alert("Please attain all questions");
+              break;
+            } else {
+              responses.push(textareavalue);
+            }
+          }
+          let hasCheckedValue = false;
+          for (let indexs = 0; indexs < inputfieldvalues.length; indexs++) {
+            if (inputfieldvalues[indexs].checked) {
+              responses.push(inputfieldvalues[indexs].value);
+              hasCheckedValue = true;
+            }
+          }
+
+          if (!hasCheckedValue) {
+            alert("Please attain all questions"); // More specific alert
+            allFieldsChecked = false;
+          }
+
+          if (responses.length === 12) {
+            async function getData() {       
+              const url = `https://script.google.com/macros/s/AKfycbyXNZTOh1ObU78dXQgIeKyeBcuZdOS18FTRlL2mw990NIt05cszm8gHUzxuYB6g9Ht4Zw/exec?A=${responses[0]}&B=${responses[1]}&C=${responses[2]}&D=${responses[3]}&E=${responses[4]}&F=${responses[5]}&G=${responses[6]}&H=${responses[7]}&I=${responses[8]}&J=${responses[9]}&K=${responses[10]}&L=${responses[11]}`;
+              const options = {method: 'POST'};
+              try {
+                const response = await fetch(url , options);
+                if (!response.ok) {
+                  throw new Error(`Response status: ${response.status}`);
+                }
+                alert("Thanks For Feedback Form Is Successfully Submited")
+                window.location.reload();
+              } catch (error) {
+                console.error(error);
+              }
+            }
+            getData();
+          }
+        }
+      });
     </script>
-</body>
+  </body>
 </html>
